@@ -1,0 +1,57 @@
+server:
+    port: 8081
+spring:
+    application:
+        name: social_media
+    datasource:
+        password: Password~1234
+        url: jdbc:mysql://ajaydemosqlserver.mysql.database.azure.com:3306/socialmediadb
+        username: demouser
+    jpa:
+        generate-ddl: true
+        hibernate:
+            ddl-auto: update
+        properties:
+            hibernate:
+                dialect: org.hibernate.dialect.MySQL8Dialect
+        show-sql: true
+    output:
+      ansi:
+         enabled: always
+        
+        
+management:
+   endpoints:
+      web:
+         exposure:
+            include: '*'
+
+   endpoint:
+       health:
+          show-details: always
+   info:
+      env:
+         enabled: true
+         
+info:
+   app:
+      description: This application fetches all the connection of a user
+      name: Ninjas(Social Media Connection Application)
+      version: 1.0
+      
+#logging:
+#   level:
+#      root: TRACE
+
+
+#logging:
+#   level:
+#      com:
+#         example:
+#            socialMedia: TRACE
+
+logging:
+      file:
+         name: logger.log
+      pattern:
+         file: '%d{yyyy-MM-dd} [%level] %c{1.} [%t] %m%n'
